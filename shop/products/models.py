@@ -1,5 +1,7 @@
 from django.db import models
 
+from shop.categories.models import Categories
+
 
 class Product(models.Model):
     use_in_migration = True
@@ -7,6 +9,8 @@ class Product(models.Model):
     name = models.TextField()
     price = models.TextField()
     image_url = models.TextField()
+
+    categories = models.ForeignKey(Categories, on_delete=models.CASCADE)
 
     class Meta:
         db_table = "shop_product"
