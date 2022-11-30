@@ -31,14 +31,29 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    "hello.apps.HelloConfig",
-    "users.apps.UsersConfig",
+    "blog.blog_users.apps.BlogUsersConfig",
+    "blog.comment.apps.CommentConfig",
+    "blog.posts.apps.PostsConfig",
+    "blog.tags.apps.TagsConfig",
+    "blog.view.apps.ViewConfig",
+    "movie.cienmas.apps.CienmasConfig",
+    "movie.movie_users.apps.MovieUsersConfig",
+    "movie.movies.apps.MoviesConfig",
+    "movie.showtimes.apps.ShowtimesConfig",
+    "movie.theater_tickets.apps.TheaterTicketsConfig",
+    "movie.theaters.apps.TheatersConfig",
+    "shop.carts.apps.CartsConfig",
+    "shop.categories.apps.CategoriesConfig",
+    "shop.deliveries.apps.DeliveriesConfig",
+    "shop.orders.apps.OrdersConfig",
+    "shop.products.apps.ProductsConfig",
+    "shop.shop_users.apps.ShopUsersConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
-    "django.contrib.staticfiles",
+    "django.contrib.staticfiles"
 ]
 
 MIDDLEWARE = [
