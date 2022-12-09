@@ -56,7 +56,7 @@ os.environ['KMP_DUPLICATE_LIB_OK']='True'
 class DcGan(object):
     def __init__(self):
         # Root directory for dataset
-        self.dataroot = "C:/Users/AIA/PycharmProjects/djangoProject/movie/movies/data"
+        self.dataroot = r"C:\Users\AIA\PycharmProjects\djangoProject\movie\movies\data"
         # Number of workers for dataloader
         self.workers = 2
         # Batch size during training
@@ -105,7 +105,6 @@ class DcGan(object):
 
     def hook(self):
         self.show_face()
-        self.weights_init()
         self.print_netG()
         self.print_netD()
         self.generate_fake_faces()
@@ -367,7 +366,7 @@ class MyDlib(object):
         face_aligner = openface.AlignDlib(predictor_model)
 
         # 첫번째 매개변수로 부터 전달 받은 이미지 파일 경로
-        file_name = r"/movie/movies/data/celeba\000001.jpg"
+        file_name = r"C:\Users\AIA\PycharmProjects\djangoProject\movie\movies\data\celeba\000001.jpg"
 
         # 이미지 파일 경로로 부터 이미지(numpy.ndarry) 불러오기
         image = cv2.imread(file_name)
@@ -422,12 +421,11 @@ dc_menu = ["Exit", #0
 
 dc_lambda = {
     "1": lambda x: x.hook(),
-    "2": lambda x: MyDlib().hook()
+    "2": lambda x: x.hook()
 }
 
 if __name__ == '__main__':
     ls = []
-    d = DcGan()
     while True:
         [print(f'{i}.{j}') for i, j in enumerate(dc_menu)]
         menu = input('Choose Menu : ')
@@ -435,4 +433,8 @@ if __name__ == '__main__':
             print('종료')
             break
         else:
+            if menu == "1":
+                d = DcGan()
+            else:
+                d = MyDlib()
             dc_lambda[menu](d)
