@@ -192,7 +192,7 @@ def Hough(edges):
 
 
 def HaarLine(*params):
-    haar = cv.CascadeClassifier(f'{Dataset().context}{HAAR}')
+    haar = cv.CascadeClassifier(f'data/{HAAR}')
     filter = haar.detectMultiScale(params[0], minSize=(150, 150))
     if len(filter) == 0:
         print("얼굴인식 실패")
@@ -215,7 +215,7 @@ def OneMosaic(*params):
 
 
 def IMGMosaic(*params):
-    haar = cv.CascadeClassifier(f'{Dataset().context}{HAAR}')
+    haar = cv.CascadeClassifier(f'data/{HAAR}')
     filter = haar.detectMultiScale(params[0], minSize=(150, 150))
     if len(filter) == 0:
         print("얼굴인식 실패")
@@ -229,9 +229,6 @@ def IMGMosaic(*params):
         mosaic_copy[y1:y2, x1:x2] = i_mos
     return mosaic_copy
 
-import copy
-
-import cv2 as cv
 from matplotlib import pyplot as plt
 import mosaic as model
 from cmm.service.dataset import Dataset as ds
@@ -362,8 +359,6 @@ def gray_scale(img):
         ↓
 (lambda x: x[:, :, 0] * 0.114 + x[:, :, 1] * 0.587 + x[:, :, 2] * 0.229)(img)
 '''
-
-import cv2
 
 from cmm.service.common import Common
 
