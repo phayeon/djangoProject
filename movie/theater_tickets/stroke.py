@@ -68,7 +68,11 @@ dtypes: float64(3), int64(4), object(5)
 
 class StrokeService:
     def __init__(self):
+<<<<<<< HEAD
         self.stroke = pd.read_csv(r'C:\Users\AIA\PycharmProjects\djangoProject\movie\theater_tickets\data\stroke\healthcare-dataset-stroke-data.csv')
+=======
+        self.stroke = pd.read_csv('data/stroke/healthcare-dataset-stroke-data.csv')
+>>>>>>> 65e716cd1d4f42805a8fd59d49e2d37fa3d43cc4
         self.my_stroke = self.stroke.rename(columns=stroke_meta)
         self.adult_stroke = copy.deepcopy(self.my_stroke)
         self.data = None
@@ -161,14 +165,22 @@ class StrokeService:
 
         self.stroke = self.adult_stroke
         self.spec()
+<<<<<<< HEAD
         self.stroke.to_csv(r'C:\Users\AIA\PycharmProjects\djangoProject\movie\theater_tickets\save\stroke\stroke.csv', index=False)
+=======
+        self.stroke.to_csv('save/stroke/stroke.csv', index=False)
+>>>>>>> 65e716cd1d4f42805a8fd59d49e2d37fa3d43cc4
         print(" ### 프리 프로세스 종료 ### ")
 
     def ordinal_variables(self):  # 해당 칼럼이 없음
         pass
 
     def targetting(self):
+<<<<<<< HEAD
         df = pd.read_csv(r'C:\Users\AIA\PycharmProjects\djangoProject\movie\theater_tickets\save\stroke\stroke.csv')
+=======
+        df = pd.read_csv('save/stroke/stroke.csv')
+>>>>>>> 65e716cd1d4f42805a8fd59d49e2d37fa3d43cc4
         self.data = df.drop(['뇌졸중'], axis=1)
         self.data = self.data.drop(['아이디'], axis=1) # 오버피팅 방지를 위해 아이디 삭제
         self.target = df['뇌졸중']
@@ -176,6 +188,11 @@ class StrokeService:
         print(f'--- target shape --- \n {self.target}')
 
     def partition(self):
+<<<<<<< HEAD
+=======
+        data = self.data
+        target = self.target
+>>>>>>> 65e716cd1d4f42805a8fd59d49e2d37fa3d43cc4
         undersample = RandomUnderSampler(sampling_strategy=0.333, random_state=2)
         data_under, target_under = undersample.fit_resample(self.data, self.target)
         print(target_under.value_counts(dropna=True))
@@ -227,6 +244,10 @@ class StrokeService:
             ax.annotate("%.3f" % p.get_width(), (p.get_x() + p.get_width(),
                                                  p.get_y()+1), xytext=(5, 10), textcoords='offset points')
 
+<<<<<<< HEAD
+=======
+        plt.show()
+>>>>>>> 65e716cd1d4f42805a8fd59d49e2d37fa3d43cc4
 
 if __name__ == '__main__':
     def my_menu(ls):
