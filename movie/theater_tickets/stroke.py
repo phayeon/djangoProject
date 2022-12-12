@@ -227,7 +227,6 @@ class StrokeService:
             ax.annotate("%.3f" % p.get_width(), (p.get_x() + p.get_width(),
                                                  p.get_y()+1), xytext=(5, 10), textcoords='offset points')
 
-        plt.show()
 
 if __name__ == '__main__':
     def my_menu(ls):
