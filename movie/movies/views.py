@@ -6,7 +6,7 @@ from movie.movies.services import DcGan
 
 @api_view(['GET'])
 @parser_classes([JSONParser])
-def login(request):
+def faces(request):
     print(f'Enter Show Faces with {request}')
     return JsonResponse({'Response Test ': 'SUCCESS'})
 # Create your views here.
