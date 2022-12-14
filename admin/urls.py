@@ -19,7 +19,7 @@ from admin.views import hello
 
 urlpatterns = [
     path('', hello),
-    path("blog/auth/", include('movie.movies.urls')),
+    path("blog/auth/", include('blog.blog_users.urls')),
     path("movie/movies/", include('movie.movies.urls')),
-    path("movie/theater_tickets/", include('movie.theater_tickets.urls')),
+    path("movie/theater_tickets/", include('movie.theater_tickets.urls'))
 ]
