@@ -37,6 +37,5 @@ def iris_Post(request):
     print(f'꽃받침 넓이 : {sw}')
     print(f'꽃잎 길이 : {pl}')
     print(f'꽃잎 넓이 : {pw}')
-    t.hook(req)
-    return JsonResponse({'Response Test ': 'SUCCESS'})
+    return JsonResponse({'Response Test ': t.hook(req)})
 # Create your views here.
