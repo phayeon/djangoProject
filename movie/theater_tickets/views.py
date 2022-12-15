@@ -1,7 +1,11 @@
 from django.http import JsonResponse
+from matplotlib import pyplot as plt
 from rest_framework.decorators import api_view, parser_classes
 from rest_framework.parsers import JSONParser
 import tensorflow as tf
+
+from movie.theater_tickets.fashion_model import FashionModel
+from movie.theater_tickets.fashion_service import FashionService
 from movie.theater_tickets.iris_model import IrisModel
 from movie.theater_tickets.irls_service import IrisService
 from movie.theater_tickets.stroke import StrokeService
@@ -38,4 +42,13 @@ def iris_Post(request):
     print(f'꽃잎 길이 : {pl}')
     print(f'꽃잎 넓이 : {pw}')
     return JsonResponse({'Response Test ': t.hook(req)})
+
+
+@api_view(['POST'])
+@parser_classes([JSONParser])
+def Fashion_Post(request):
+    data = request.data
+    test_num = int(tf.constant(float(data['testNum'])))
+    print(f'리액트에서 받아 온 숫자 : {test_num}')
+    return JsonResponse({'Response Test ': FashionService().hook(test_num)})
 # Create your views here.
