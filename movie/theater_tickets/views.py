@@ -47,13 +47,11 @@ def iris_Post(request):
 @api_view(['GET', 'POST'])
 def fashion(request):
     if request.method == 'GET':
-        print(f"######## ID is {request.GET['test_num']} ########")
+        print(f"######## ID is {request.GET['get_num']} ########")
         return JsonResponse(
-            {'result': FashionService().service_model(int(request.GET['test_num']))})
+            {'result': FashionService().service_model(int(request.GET['get_num']))})
     elif request.method == 'POST':
         data = json.loads(request.body)  # json to dict
-        print(f"######## GET at Here ! React ID is {data['test_num']} ########")
-        result = FashionService().service_model(int(data['test_num']))
-        print(result)
+        print(f"######## GET at Here ! React ID is {data['post_num']} ########")
+        result = FashionService().service_model(int(data['post_num']))
         return JsonResponse({'result': result})
-
