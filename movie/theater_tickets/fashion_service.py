@@ -20,17 +20,19 @@ class FashionService:
     def hook(self, feature):
         self.service_model(feature)
 
-    def service_model(self, feature):
+    def service_model(self, feature) -> int:
         model = load_model(os.path.join(os.path.abspath("save"), "fashion_model.h5"))
         (train_images, train_labels), (test_images, test_labels) = keras.datasets.fashion_mnist.load_data()
         predictions = model.predict(test_images)
         predictions_array, true_label, img = predictions[feature], test_labels[feature], test_images[feature]
+        '''
         plt.grid(False)
         plt.xticks([])
         plt.yticks([])
         plt.imshow(img, cmap=plt.cm.binary)
-        predicted_label = np.argmax(predictions_array)
-        print(f'예측한 답 : {predicted_label}')
+        '''
+        result = np.argmax(predictions_array)
+        '''
         if predicted_label == true_label:
             color = 'blue'
         else:
@@ -40,7 +42,31 @@ class FashionService:
             100 * np.max(predictions_array),
             class_names[true_label]
         ), color=color)
-        # plt.show()
+        plt.show()
+        '''
+        if result == 0:
+            resp = 'T-shirt/top'
+        elif result == 1:
+            resp = 'Trouser'
+        elif result == 2:
+            resp = 'Pullover'
+        elif result == 3:
+            resp = 'Dress'
+        elif result == 4:
+            resp = 'Coat'
+        elif result == 5:
+            resp = 'Sandal'
+        elif result == 6:
+            resp = 'Shirt'
+        elif result == 7:
+            resp = 'Sneaker'
+        elif result == 8:
+            resp = 'Bag'
+        elif result == 9:
+            resp = 'Ankle boot'
+
+        print(f'예측한 답 : {resp}')
+        return resp
 
 
 FASHION_MENUS = ["종료", "보기"]

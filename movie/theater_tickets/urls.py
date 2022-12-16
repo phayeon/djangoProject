@@ -5,5 +5,10 @@ urlpatterns = [
     url(r'stroke', views.stroke),
     url(r'irispost', views.iris_Post),
     url(r'irisget', views.iris_Get),
-    url(r'fashionpost', views.Fashion_Post)
+    url(r'fashion', views.fashion)
 ]
+
+"""
+
+url(r'get/fashionget/(?P<id>)$', views.fashion_Get)
+"""
