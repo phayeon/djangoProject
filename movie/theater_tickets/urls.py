@@ -5,7 +5,8 @@ urlpatterns = [
     url(r'stroke', views.stroke),
     url(r'irispost', views.iris_Post),
     url(r'irisget', views.iris_Get),
-    url(r'fashion', views.fashion)
+    url(r'fashion', views.fashion),
+    url(r'number', views.number)
 ]
 
 """

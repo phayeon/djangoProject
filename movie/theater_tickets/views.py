@@ -8,6 +8,7 @@ import tensorflow as tf
 from movie.theater_tickets.fashion_service import FashionService
 from movie.theater_tickets.iris_model import IrisModel
 from movie.theater_tickets.irls_service import IrisService
+from movie.theater_tickets.number import NumberService, NumberModel
 from movie.theater_tickets.stroke import StrokeService
 
 
@@ -47,7 +48,7 @@ def iris_Post(request):
 @api_view(['GET', 'POST'])
 def fashion(request):
     if request.method == 'GET':
-        print(f"######## ID is {request.GET['get_num']} ########")
+        print(f"######## ID is c ########")
         return JsonResponse(
             {'result': FashionService().service_model(int(request.GET['get_num']))})
     elif request.method == 'POST':
@@ -55,3 +56,14 @@ def fashion(request):
         print(f"######## GET at Here ! React ID is {data['post_num']} ########")
         result = FashionService().service_model(int(data['post_num']))
         return JsonResponse({'result': result})
+
+
+@api_view(['POST'])
+def number(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)  # json to dict
+        print(f"######## GET at Here ! React ID is {data} ########")
+        result = NumberModel().creat_model()
+        return JsonResponse({'테스트 정확도': result})
+    else:
+        return JsonResponse({'result': '연결 오류'})
